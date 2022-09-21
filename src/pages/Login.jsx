@@ -74,7 +74,7 @@ function Login() {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await api.post("/user/signin", credentiels);
+    const response = await api().post("/user/authenticate", credentiels);
     if (response.data.status === "success") {
       localStorage.setItem("token", response.data.token);
       navigate("/");
