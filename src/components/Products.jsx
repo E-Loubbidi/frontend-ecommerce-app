@@ -50,7 +50,7 @@ function Products() {
 
   useEffect(() => {
     const getProducts = async () => {
-      const response = await api.get("/product/list");
+      const response = await api().get("/product/list");
       setProducts(response.data);
     };
     getProducts();

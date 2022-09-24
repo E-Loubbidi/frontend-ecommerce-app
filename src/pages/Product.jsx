@@ -97,7 +97,7 @@ function Product() {
 
   const handleAddToCartClick = async () => {
     dispatch(addProduct(quantity));
-    const response = await api.post(
+    const response = await api({ auth: true }).post(
       "/cart/add?token=2e6ec3a8-bccc-4649-a725-23edf4974630",
       { productId: id, quantity }
     );
@@ -106,7 +106,7 @@ function Product() {
 
   useEffect(() => {
     const getProduct = async () => {
-      const response = await api.get(`/product/${productId}`);
+      const response = await api().get(`/product/${productId}`);
       setProduct(response.data);
     };
     getProduct();

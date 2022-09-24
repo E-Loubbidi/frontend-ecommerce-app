@@ -165,7 +165,7 @@ function Cart() {
         })
       )
     );
-    const response = await api.post(
+    const response = await api({ auth: true }).post(
       "/order/create-checkout-session",
       cart.items.map(
         ({ product: { id: productId, name, price }, quantity }) => ({
@@ -188,7 +188,7 @@ function Cart() {
 
   useEffect(() => {
     const getCartItems = async () => {
-      const response = await api.get(
+      const response = await api({ auth: true }).get(
         "/cart/items?token=2e6ec3a8-bccc-4649-a725-23edf4974630"
       );
       console.log(response.data);

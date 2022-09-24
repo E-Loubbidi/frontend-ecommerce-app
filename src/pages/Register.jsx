@@ -79,7 +79,7 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isValid(info)) {
-      const response = await api.post("/user/signup", info);
+      const response = await api().post("/user/signup", info);
       if (response.data.success) {
         navigate("/");
       }
